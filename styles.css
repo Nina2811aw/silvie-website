@@ -74,23 +74,41 @@
   }
   
   /* Hero Section */
+ /* Hero Section */
+.hero {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom right, var(--primary), var(--dark));
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 600px) {
   .hero {
-    padding: 6rem 2rem;
-    text-align: center;
-    background: linear-gradient(to bottom right, var(--primary), var(--dark));
-    color: white;
+    padding: 4rem 1.5rem;
   }
-  
+
   .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;   /* kleiner für mobile */
+    line-height: 1.2;  /* wichtig für Umbruch */
+    word-break: break-word; /* falls sehr lange Wörter */
   }
-  
+
   .hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
+    font-size: 1rem;
   }
+}
 
 
   .hero_2-flex {

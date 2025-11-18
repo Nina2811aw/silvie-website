@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | Coaching</title>
+  <title>Contact | Coaching</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,14 +18,21 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="coaching.html">Coaching</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
       <a href="impressum.html">Impressum</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Welcome to Your Coaching Journey</h1>
-    <p>Your path to clarity, growth, and fulfillment starts here.</p>
+  <section class="content-section">
+    <h1>Contact</h1>
+    <p>Feel free to reach out using the form below.</p>
+
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <footer>

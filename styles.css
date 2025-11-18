@@ -73,8 +73,8 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   
-  /* Hero Section */
- /* Hero Section */
+
+/* Hero Section */
 .hero {
   padding: 6rem 2rem;
   text-align: center;
@@ -109,7 +109,6 @@
     font-size: 1rem;
   }
 }
-
 
   .hero_2-flex {
     display: flex;

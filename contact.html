@@ -27,13 +27,14 @@
     <h1>Kontakt</h1>
     <p>Schreiben Sie mir bei Interesse gerne eine Nachricht über das Kontaktformular.</p>
 
-    <form class="contact-form">
+    <form class="contact-form" action="https://formspree.io/f/movbwkpy" method="POST">
       <input type="text" placeholder="Ihr Name" required />
-      <input type="email" placeholder="Ihre Email" required />
-      <textarea rows="5" placeholder="Ihre Nachricht" required></textarea>
+      <input type="email" name="email" placeholder="Ihre Email" required />
+      <textarea rows="5" name="message" placeholder="Ihre Nachricht" required></textarea>
       <button type="submit">Nachricht senden</button>
     </form>
   </section>
+
 
   <footer>
     © 2025 Coaching — All Rights Reserved

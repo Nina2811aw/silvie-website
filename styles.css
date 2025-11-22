@@ -10,6 +10,17 @@
     font-family: Arial, sans-serif;
     background-color: var(--light);
     color: var(--dark);
+    display: flex;
+    flex-direction: column;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  .content-section {
+    flex: 1; /* sorgt dafür, dass dieser Bereich sich ausdehnt */
   }
   
   /* Header */

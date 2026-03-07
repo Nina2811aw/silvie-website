@@ -327,7 +327,126 @@ footer {
   margin-top: auto;
 }
 
-/* ─── FADE IN ANIMATION ─── */
+/* ─── OFFER CARDS ─── */
+.offer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2.5rem 0 3rem;
+}
+
+.offer-card {
+  border-radius: 4px;
+  padding: 2.2rem 2rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(115,52,97,0.12);
+}
+
+.offer-card__icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.offer-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-bottom: 0.85rem;
+  margin-top: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.offer-card p {
+  font-size: 0.93rem;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  font-weight: 300;
+}
+
+.offer-card__lead {
+  font-weight: 500 !important;
+  margin-top: 0.5rem;
+}
+
+.offer-card ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.offer-card ul li {
+  font-size: 0.93rem;
+  font-weight: 300;
+  line-height: 1.8;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  position: relative;
+}
+
+.offer-card ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+}
+
+/* Card colour themes */
+.offer-card--rose {
+  background: linear-gradient(135deg, #f5e6ef 0%, #eedce8 100%);
+  color: #5a2035;
+}
+.offer-card--rose h2,
+.offer-card--rose ul li::before { color: var(--primary); }
+
+.offer-card--plum {
+  background: linear-gradient(135deg, #e8d5e8 0%, #ddc8e0 100%);
+  color: #3a1f3a;
+}
+.offer-card--plum h2 { color: var(--dark); border-bottom-color: rgba(115,52,97,0.2); }
+.offer-card--plum p { color: #3a1f3a; }
+.offer-card--plum ul li { color: #3a1f3a; }
+.offer-card--plum ul li::before { color: var(--dark); }
+
+.offer-card--gold {
+  background: linear-gradient(135deg, #f5f0e0 0%, #ede5c8 100%);
+  color: #4a3a10;
+}
+.offer-card--gold h2,
+.offer-card--gold ul li::before { color: #8a7030; }
+
+.offer-card--sage {
+  background: linear-gradient(135deg, #e8ede8 0%, #d8e5d5 100%);
+  color: #2a3d28;
+}
+.offer-card--sage h2,
+.offer-card--sage ul li::before { color: #4a6b45; }
+
+/* CTA line at bottom */
+.offer-cta {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+.offer-cta a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.offer-cta a:hover { color: var(--dark); }
+
+@media (max-width: 680px) {
+  .offer-grid { grid-template-columns: 1fr; }
+}
+
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -359,4 +478,3 @@ footer {
   .hero_2-img { width: 90px; height: 90px; }
   button { align-self: stretch; text-align: center; }
 }
-  

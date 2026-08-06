@@ -327,6 +327,26 @@ footer {
   margin-top: auto;
 }
 
+footer a {
+  color: #b89aab;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+.footer-links {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a + a::before {
+  content: "·";
+  margin: 0 0.6em;
+  pointer-events: none;
+}
+
 /* ─── OFFER CARDS ─── */
 .offer-grid {
   display: grid;

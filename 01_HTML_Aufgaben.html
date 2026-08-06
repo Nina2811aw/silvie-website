@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML-Aufgaben 🏗️ – Mein magisches Haustier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #ffd6e7;
+    --pink-deep: #ff6fa3;
+    --lavender: #e4daff;
+    --lavender-deep: #9d6dd1;
+    --mint: #c8f0d9;
+    --mint-deep: #4eb583;
+    --cream: #fff8ee;
+    --sun: #ffe5a3;
+    --ink: #3a2a4d;
+    --ink-soft: #6b5780;
+    --paper: #fffdf8;
+    --code-bg: #2a1d3d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background:
+      radial-gradient(circle at 12% 18%, var(--pink) 0, transparent 38%),
+      radial-gradient(circle at 88% 12%, var(--lavender) 0, transparent 42%),
+      radial-gradient(circle at 78% 88%, var(--mint) 0, transparent 40%),
+      radial-gradient(circle at 18% 82%, var(--sun) 0, transparent 38%),
+      var(--cream);
+    background-attachment: fixed;
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    padding: 2rem 1rem 6rem;
+  }
+  .container { max-width: 820px; margin: 0 auto; }
+  .hero {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 28px;
+    padding: 2.5rem 2.5rem;
+    box-shadow: 8px 8px 0 var(--ink);
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--pink);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--ink);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.05;
+    margin: 0.3rem 0 0.8rem;
+  }
+  h1 em { font-style: italic; color: var(--pink-deep); }
+  .subtitle { color: var(--ink-soft); max-width: 540px; margin: 0 auto; }
+  .progress-info {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    margin: 2.5rem 0 1rem;
+    border-bottom: 3px dashed var(--pink-deep);
+    padding-bottom: 0.4rem;
+    display: inline-block;
+  }
+  .task {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 22px;
+    padding: 1.8rem 2rem;
+    margin: 1.8rem 0;
+    box-shadow: 5px 5px 0 var(--ink);
+    position: relative;
+  }
+  .task-number {
+    position: absolute;
+    top: -16px; left: 24px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.2rem 0.9rem;
+    border-radius: 999px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+  }
+  .task h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    margin: 0.2rem 0 0.8rem;
+    color: var(--ink);
+  }
+  .task .icon {
+    font-size: 1.4rem;
+    margin-right: 0.3rem;
+  }
+  .label {
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    background: var(--lavender);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    border: 1.5px solid var(--ink);
+    margin: 1rem 0 0.4rem;
+  }
+  .label.todo { background: var(--mint); }
+  .label.tip { background: var(--sun); }
+  .label.example { background: var(--pink); }
+  pre {
+    background: var(--code-bg);
+    color: #f8e9c8;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    margin: 0.6rem 0;
+  }
+  pre .tag { color: #ff9ec7; }
+  pre .attr { color: #b6e6a3; }
+  pre .str { color: #ffd98a; }
+  pre .com { color: #8b7ba3; font-style: italic; }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--cream);
+    padding: 0.12rem 0.4rem;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--mint);
+    border: 1.5px solid var(--ink);
+    border-radius: 12px;
+    padding: 0.6rem 0.9rem;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  .checkbox::before {
+    content: "";
+    display: inline-block;
+    width: 22px; height: 22px;
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    background: var(--paper);
+    flex-shrink: 0;
+  }
+  ul.todo-list, ol.todo-list { padding-left: 1.3rem; }
+  ul.todo-list li, ol.todo-list li { margin: 0.4rem 0; }
+  .intro-card {
+    background: linear-gradient(135deg, var(--paper) 0%, var(--lavender) 220%);
+    border: 2px solid var(--ink);
+    border-radius: 22px;
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0 2rem;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .intro-card h3 {
+    font-family: 'Fraunces', serif;
+    margin-top: 0;
+    color: var(--lavender-deep);
+  }
+  .signature {
+    text-align: center;
+    margin-top: 4rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+  ul li::marker, ol li::marker { color: var(--pink-deep); }
+  .small { font-size: 0.9rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <span class="eyebrow">Workbook 1 von 4 🏗️</span>
+    <h1>HTML — das <em>Skelett</em> deiner Website</h1>
+    <p class="subtitle">In diesen Aufgaben baust du das Grundgerüst für dein magisches Haustier. Es wird noch nicht hübsch aussehen — aber es wird alle Zutaten haben, die wir später brauchen!</p>
+    <p class="progress-info">⏱️ Geschätzte Zeit: 2–3 Stunden &nbsp;·&nbsp; 12 Aufgaben &nbsp;·&nbsp; Tippe alles in den HTML-Bereich von <strong>liveweave.com</strong></p>
+  </header>
+
+  <div class="intro-card">
+    <h3>🌱 Erinnere dich</h3>
+    <p>HTML ist wie das Skelett eines Körpers — es bestimmt, <em>was</em> auf der Seite ist, aber noch nicht, wie es aussieht. Jedes Element hat einen <strong>öffnenden Tag</strong> wie <code>&lt;p&gt;</code> und einen <strong>schließenden Tag</strong> wie <code>&lt;/p&gt;</code>. Dazwischen kommt der Inhalt.</p>
+    <p>Eine <strong>id</strong> ist wie ein Namensschild — jedes Element kann nur eine bestimmte ID haben, und JavaScript wird sie später benutzen, um Elemente zu finden!</p>
+  </div>
+
+  <!-- Aufgabe 1 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 1</span>
+    <h3><span class="icon">🏠</span>Das Grundgerüst</h3>
+    <p>Liveweave hat das Grundgerüst meistens schon vorgegeben. Falls nicht, oder falls du es nochmal selbst tippen möchtest, sieht es so aus:</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="str">"de"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="str">"UTF-8"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>Mein magisches Haustier<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="com">&lt;!-- Hier kommt alles rein, was man sehen soll --&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <p>Schreibe alles weitere in liveweave <strong>innerhalb von <code>&lt;body&gt;...&lt;/body&gt;</code></strong>.</p>
+    <div class="checkbox">Ich habe das Grundgerüst und weiß, wo der Inhalt hinkommt.</div>
+  </article>
+
+  <!-- Aufgabe 2 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 2</span>
+    <h3><span class="icon">📛</span>Eine große Überschrift</h3>
+    <p>Jede Website braucht einen Titel. Bei uns wird das der Name deines Haustiers sein.</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;h1&gt;</span>Sternchen<span class="tag">&lt;/h1&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Schreibe ein <code>&lt;h1&gt;</code>-Element ins <code>&lt;body&gt;</code> mit dem Namen deines Haustiers (du erfindest ihn).</li>
+      <li>Darunter ein <code>&lt;p&gt;</code> mit einem Untertitel, z.B. <em>"Mein magisches Haustier"</em>.</li>
+    </ul>
+    <span class="label tip">💡 Tipp</span>
+    <p>Es gibt <code>&lt;h1&gt;</code> bis <code>&lt;h6&gt;</code> für unterschiedlich große Überschriften. <code>&lt;h1&gt;</code> ist die größte!</p>
+  </article>
+
+  <!-- Aufgabe 3 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 3</span>
+    <h3><span class="icon">🦄</span>Der Pet-Bereich</h3>
+    <p>Jetzt brauchen wir einen Bereich, in dem dein Haustier "wohnt". Dafür benutzen wir <code>&lt;div&gt;</code> — das ist ein Container, eine unsichtbare Box, in die andere Sachen reinkommen.</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="str">"pet-bereich"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;p</span> <span class="attr">id</span>=<span class="str">"pet"</span><span class="tag">&gt;</span>🦄<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;p</span> <span class="attr">id</span>=<span class="str">"pet-stimmung"</span><span class="tag">&gt;</span>fühlt sich wohl<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Erstelle ein <code>&lt;div&gt;</code> mit der id <code>pet-bereich</code>.</li>
+      <li>Im <code>&lt;div&gt;</code>: ein Emoji für dein Haustier (🦄, 🐱, 🐉, 🐰, ...) — was du magst!</li>
+      <li>Darunter ein <code>&lt;p&gt;</code> mit der id <code>pet-stimmung</code> und Text wie <em>"fühlt sich wohl"</em>.</li>
+    </ul>
+    <span class="label tip">💡 Tipp</span>
+    <p>IDs müssen einzigartig sein — also keine ID zweimal verwenden. JavaScript wird die IDs später benutzen, um Sachen zu verändern!</p>
+  </article>
+
+  <!-- Aufgabe 4 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 4</span>
+    <h3><span class="icon">📊</span>Die Status-Anzeigen</h3>
+    <p>Dein Haustier hat drei Zustände: <strong>Hunger</strong>, <strong>Glück</strong> und <strong>Energie</strong>. Jeder zeigt einen Wert von 0 bis 100. Wir brauchen für jeden Wert ein eigenes Element mit einer ID.</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="str">"status"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;p&gt;</span>🍓 Hunger: <span class="tag">&lt;span</span> <span class="attr">id</span>=<span class="str">"hunger"</span><span class="tag">&gt;</span>80<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/p&gt;</span>
+  <span class="com">&lt;!-- Glück und Energie genauso --&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Mach ein <code>&lt;div&gt;</code> mit der id <code>status</code>.</li>
+      <li>Mach drei <code>&lt;p&gt;</code>-Elemente — eins für Hunger, eins für Glück (id <code>glueck</code>), eins für Energie (id <code>energie</code>).</li>
+      <li>Setze den Anfangswert in jedem auf <strong>80</strong>.</li>
+    </ul>
+    <span class="label tip">💡 Was ist <code>&lt;span&gt;</code>?</span>
+    <p>Wie <code>&lt;div&gt;</code>, aber für kleinere Sachen <em>innerhalb</em> einer Zeile. Perfekt um nur die Zahl zu markieren, nicht den ganzen Text.</p>
+  </article>
+
+  <!-- Aufgabe 5 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 5</span>
+    <h3><span class="icon">🔘</span>Die Aktions-Buttons</h3>
+    <p>Drei Buttons, mit denen man dein Haustier füttern, mit ihm spielen oder es schlafen legen kann.</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="str">"buttons"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">id</span>=<span class="str">"btn-fuettern"</span><span class="tag">&gt;</span>🍎 Füttern<span class="tag">&lt;/button&gt;</span>
+  <span class="com">&lt;!-- weitere Buttons hier --&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Container <code>&lt;div&gt;</code> mit der id <code>buttons</code>.</li>
+      <li>Drei <code>&lt;button&gt;</code>-Elemente mit den IDs <code>btn-fuettern</code>, <code>btn-spielen</code>, <code>btn-schlafen</code>.</li>
+      <li>Schreibe schöne Beschriftungen mit Emojis ins Innere der Buttons.</li>
+    </ul>
+    <span class="label tip">💡 Tipp</span>
+    <p>Wenn du jetzt auf die Buttons klickst, passiert noch nichts. Das ist normal! Die Logik kommt mit JavaScript in Woche 3.</p>
+  </article>
+
+  <!-- Aufgabe 6 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 6</span>
+    <h3><span class="icon">🍓</span>Das Futter-Inventar (eine Liste)</h3>
+    <p>Welche Snacks hat dein Haustier zur Auswahl? Listen mit Aufzählungspunkten macht man mit <code>&lt;ul&gt;</code> (unsortierte Liste) und <code>&lt;li&gt;</code> (Listenpunkt).</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;h2&gt;</span>Mein Futter<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;ul</span> <span class="attr">id</span>=<span class="str">"inventar"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li&gt;</span>🍎 Apfel<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>🍰 Kuchen<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Eine <code>&lt;h2&gt;</code>-Überschrift mit "Mein Futter" oder "Snackvorrat" oder was du willst.</li>
+      <li>Eine <code>&lt;ul&gt;</code> mit der id <code>inventar</code>.</li>
+      <li>Mindestens 5 verschiedene Futter-<code>&lt;li&gt;</code>'s mit Emojis. Wähle, was zu deinem Haustier passt!</li>
+    </ul>
+    <span class="label tip">💡 Mehr Listen?</span>
+    <p>Es gibt auch <code>&lt;ol&gt;</code> (ordered list) — da werden die Punkte mit 1, 2, 3 nummeriert.</p>
+  </article>
+
+  <!-- Aufgabe 7 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 7</span>
+    <h3><span class="icon">✏️</span>Pet umbenennen — ein Eingabefeld</h3>
+    <p>Was, wenn man dem Haustier einen anderen Namen geben möchte? Dafür brauchen wir ein <code>&lt;input&gt;</code> — ein Textfeld zum Eintippen.</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="str">"umbenennen"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="str">"name-input"</span><span class="tag">&gt;</span>Neuer Name:<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"text"</span> <span class="attr">id</span>=<span class="str">"name-input"</span> <span class="attr">placeholder</span>=<span class="str">"z.B. Sternchen"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">id</span>=<span class="str">"btn-umbenennen"</span><span class="tag">&gt;</span>Umbenennen<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Erstelle einen Bereich zum Umbenennen (siehe Beispiel).</li>
+      <li>Wichtig: Das <code>&lt;input&gt;</code> braucht die id <code>name-input</code>.</li>
+      <li>Der Button braucht die id <code>btn-umbenennen</code>.</li>
+    </ul>
+    <span class="label tip">💡 Was ist placeholder?</span>
+    <p><code>placeholder</code> ist der graue Text, der im Feld steht, bevor man etwas tippt — wie ein Hinweis.</p>
+  </article>
+
+  <!-- Aufgabe 8 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 8</span>
+    <h3><span class="icon">🌙</span>Tag/Nacht-Schalter</h3>
+    <p>Schlafenszeit! Mit einem Knopf können wir später zwischen Tag- und Nachtmodus umschalten.</p>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Mache einen <code>&lt;button&gt;</code> mit der id <code>btn-tagnacht</code>.</li>
+      <li>Beschriftung: <em>"🌙 Nacht / ☀️ Tag"</em> oder ähnlich.</li>
+    </ul>
+    <span class="label tip">💡 Wozu?</span>
+    <p>Mit JavaScript werden wir später den Hintergrund dunkel machen, wenn man auf diesen Knopf drückt — dein Haustier schläft dann!</p>
+  </article>
+
+  <!-- Aufgabe 9 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 9</span>
+    <h3><span class="icon">📔</span>Das Tagebuch</h3>
+    <p>Hier soll später erscheinen, was passiert ist — z.B. <em>"Du hast Sternchen gefüttert!"</em>. Das ist nur ein leerer Bereich, in den JavaScript Texte einfügen wird.</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;h2&gt;</span>Tagebuch<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;ul</span> <span class="attr">id</span>=<span class="str">"tagebuch"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Sternchen ist erwacht...<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Eine <code>&lt;h2&gt;</code>-Überschrift "Tagebuch".</li>
+      <li>Eine <code>&lt;ul&gt;</code> mit der id <code>tagebuch</code>.</li>
+      <li>Ein erster <code>&lt;li&gt;</code>-Eintrag — z.B. <em>"[Pet-Name] ist erwacht..."</em>.</li>
+    </ul>
+  </article>
+
+  <!-- Aufgabe 10 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 10</span>
+    <h3><span class="icon">🦶</span>Footer — der Fuß der Seite</h3>
+    <p>Ganz unten kommt ein <code>&lt;footer&gt;</code> — das ist ein semantisches Element, das HTML mitteilt: "Hier ist der Schluss".</p>
+    <span class="label example">Beispiel</span>
+<pre><span class="tag">&lt;footer&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Mit Liebe gemacht von [Dein Name] 💖<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/footer&gt;</span></pre>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Mach einen <code>&lt;footer&gt;</code> ganz am Ende des <code>&lt;body&gt;</code>.</li>
+      <li>Schreib deinen Namen rein (oder einen kreativen Künstlernamen 😉).</li>
+      <li>Optional: Das aktuelle Jahr.</li>
+    </ul>
+  </article>
+
+  <!-- Aufgabe 11 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 11</span>
+    <h3><span class="icon">📦</span>Alles in Sektionen ordnen</h3>
+    <p>Stell dir vor, deine Seite ist ein Buch — jeder Abschnitt sollte logisch zusammengehören. Dafür gibt es <code>&lt;section&gt;</code>. Es ist wie ein <code>&lt;div&gt;</code>, aber mit Bedeutung.</p>
+    <span class="label todo">Deine Aufgabe</span>
+    <ul class="todo-list">
+      <li>Wickle die Aktions-Buttons (Aufgabe 5) zusätzlich in eine <code>&lt;section&gt;</code> mit der class <code>aktionen</code>.</li>
+      <li>Wickle das Inventar in eine <code>&lt;section&gt;</code> mit der class <code>inventar-bereich</code>.</li>
+      <li>Wickle das Tagebuch in eine <code>&lt;section&gt;</code> mit der class <code>tagebuch-bereich</code>.</li>
+    </ul>
+    <span class="label tip">💡 id vs. class</span>
+    <p><strong>id</strong> = einmalig, jedes Element hat seine eigene. <strong>class</strong> = wiederverwendbar, mehrere Elemente können dieselbe Klasse haben. CSS und JS können beides nutzen.</p>
+  </article>
+
+  <!-- Aufgabe 12 -->
+  <article class="task">
+    <span class="task-number">Aufgabe 12 ✨</span>
+    <h3><span class="icon">🎨</span>Bonus: Mach es zu deinem!</h3>
+    <p>Du hast jetzt alle "Pflicht"-Elemente. Jetzt kommt die Kür: Was würde deine Seite noch perfekter machen?</p>
+    <span class="label todo">Ideen — wähl 1-2 aus</span>
+    <ul class="todo-list">
+      <li>Eine zweite Liste mit "Lieblingssachen" deines Haustiers (Farbe, Spielzeug, Lieblingstanz...).</li>
+      <li>Ein Bereich "Tagesstatistik" mit drei <code>&lt;span&gt;</code>'s wie <code>fuetterungen-heute</code>, <code>spiele-heute</code>.</li>
+      <li>Ein <code>&lt;img&gt;</code>-Element mit einem Bild deines Haustiers (z.B. von <a href="https://www.flaticon.com" target="_blank">flaticon.com</a> oder einem Screenshot).</li>
+      <li>Ein "Über mich"-Bereich, in dem das Haustier sich selbst vorstellt.</li>
+      <li>Mehrere "Stimmungen" als versteckte Texte (id-Beispiele: <code>stimmung-glücklich</code>, <code>stimmung-müde</code>).</li>
+    </ul>
+    <span class="label tip">💡 Wenn du ein Bild einfügen willst</span>
+<pre><span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="str">"https://link-zum-bild.png"</span> <span class="attr">alt</span>=<span class="str">"Mein Haustier"</span><span class="tag">&gt;</span></pre>
+    <p class="small">Achtung: Ein Link muss direkt auf eine Bilddatei zeigen, nicht auf eine Webseite mit Bildern.</p>
+  </article>
+
+  <h2>🎉 Du hast es geschafft!</h2>
+  <div class="intro-card">
+    <h3>So sieht deine Seite jetzt aus</h3>
+    <p>Wahrscheinlich ziemlich nüchtern, oder? Eine Liste aus Texten und Knöpfen, schwarz auf weiß. <strong>Das ist genau richtig!</strong> HTML kümmert sich nur um die Struktur. In den nächsten Aufgaben (Workbook 2 — CSS) wird daraus eine bunte, glitzernde Traumwelt!</p>
+    <p>Mach jetzt unbedingt einen Screenshot oder kopiere deinen Code in eine Notiz. Dann hast du einen "Vorher"-Zustand und kannst später vergleichen, wie weit du gekommen bist.</p>
+  </div>
+
+  <p class="signature">Weiter geht's mit CSS! 🎨</p>
+
+</div>
+</body>
+</html>
